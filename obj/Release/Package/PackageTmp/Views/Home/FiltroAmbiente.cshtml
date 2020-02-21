@@ -1,0 +1,50 @@
+﻿@model CMDBApplication.ViewModels.HomeView
+@using CMDBApplication.Models
+@using System.Text
+
+@{
+    List<Ambiente> ambientes = new List<Ambiente>();
+    if (Model.Pendientes!=null)
+    {
+       foreach(Solicitud s in Model.Pendientes)
+       {
+           if (!ambientes.Exists(p=>p.Id==s.Ambiente.Id))
+           {
+               ambientes.Add(s.Ambiente);
+           }
+       }
+    }
+   if (Model.Aprobados!=null)
+   {
+       foreach(Solicitud s in Model.Aprobados)
+       {
+           if (!ambientes.Exists(p => p.Id == s.Ambiente.Id))
+           {
+               ambientes.Add(s.Ambiente);
+           }
+       }
+   }
+   string resultado = String.Empty;
+   List<Ambiente> ambientesOrdenados = ambientes.OrderBy(p => p.Orden).ToList();
+   if (ambientesOrdenados.Count > 1)
+   {
+       StringBuilder sb = new StringBuilder();
+       sb.Append("<div class='text-right'>");
+       bool primero = true;
+       foreach (Ambiente ambiente in ambientesOrdenados)
+       {
+           if (primero)
+           {
+               sb.Append("<a href='#' data-ambiente='"+ambiente.Id.ToString()+"' class='opcion marcado'>" + ambiente.Nombre + "</a> | ");
+               primero = false;
+           }
+           else
+           {
+               sb.Append("<a href='#' data-ambiente='" + ambiente.Id.ToString() + "' class='opcion'>" + ambiente.Nombre + "</a> | ");       
+           }
+       }
+       resultado = sb.ToString().Substring(0, sb.Length - 2);
+       resultado = resultado + "</div>";
+   }
+}
+@{Response.Write(resultado);}

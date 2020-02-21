@@ -1,0 +1,479 @@
+﻿@import url("css/bootstrap.min.css");
+/*@import url("css/bootstrap-theme.min.css");*/
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+ins {
+    background-color: #c6ffc6;
+    text-decoration: none;
+}
+
+del {
+    /*background-color: #ffc6c6;*/
+}
+.logo
+{
+	background-image:url('../../img/HP_Blue_RGB_150_70px.png');
+	width:70px;
+	height:70px;
+	float:left;
+	margin-right:10px;
+}
+
+.etiqueta
+{
+	width:180px;
+	display:block;
+	float:left;
+}
+.acceso
+{
+	width:360px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.filacampos
+{
+	height:30px;
+}
+.opcionmenu
+{
+	left:0px;
+	margin-left:0px;
+	padding-left:0px;
+	display:block;
+	width:100%;
+	height:30px;	
+}
+a.opcionmenu:link,a.opcionmenu:visited
+{
+	text-decoration:none;
+	color: Gray;
+}
+a.opcionmenu:hover
+{
+	text-decoration:underline;
+	color: Black;
+}
+.subtitulo
+{
+	font-size:1.5em;
+	text-align:center;
+	text-decoration:underline;
+}
+.textoCorto
+{
+	width:150px;	
+}
+.textoLargo
+{
+	width:300px;
+}
+.textoMuyLargo
+{
+	width:600px;
+}
+.tabla
+{
+	border-collapse:collapse;
+	border:solid 1px black;
+	margin-bottom:5px;
+	width:100%;
+	margin-top:5px;
+}
+.tabla th
+{
+	border:solid 1px black;
+	background-color:#cccccc;
+}
+.tabla td
+{
+	border: solid 1px black;
+	font-size:0.9em;
+}
+.mensaje
+{
+	display:block;
+	color:#ff0000;
+}
+.cabecerabandeja
+{
+	border:solid 1px black;
+	height:50px;
+	text-align:left;
+	padding:10px;
+	font-size:large;
+	color:Black;
+	font-weight:bold;
+	background-color:lightgray;
+	width:100%;
+	margin-bottom:2px;
+	margin-top:30px;
+}
+.emergente
+{
+	background-color:Orange;
+}
+.titulo a,.titulo a:visited,.titulo a:link,.titulo a:hover
+{
+	color:Black;
+	text-decoration:none;
+}
+.puntero
+{
+	cursor:pointer;
+	text-decoration:underline;
+}
+.puntero:hover
+{
+	color:Gray;
+}
+.resaltado {
+    background-color:yellow;
+}
+.leyenda{
+  margin-bottom:20px;
+  font-size:14px;
+}
+.programado{
+  padding:3px;
+  background-color:#3A87AD;
+  border: solid 1px #3A87AD;
+  color: #ffffff;
+  border-radius:4px;
+}
+.ejecutado{
+  padding:3px;
+  background-color:#FF724D;
+  border: solid 1px #3A87AD;
+  color: #ffffff;
+  border-radius:4px;
+}
+.tooltiptext {
+    display:none;
+}
+.informacionProyecto {
+    border:none;
+    overflow:hidden;
+    width:400px;
+    height:300px;
+    /*float:right;
+        */
+}
+.graficoProyecto {
+    width:300px;
+    height:300px;
+}
+.cargando {
+    float:left;
+}
+.razonemergente {
+    display:none;
+}
+.fechareversion {
+    display:none;
+}
+.tab-pane {
+    padding-top:20px;
+}
+.control-label {
+    text-align:right;
+}
+.mano {
+    cursor:auto;
+}
+#menuAplicacion
+{
+	float:left;
+	border:solid 1px gray;
+	padding:10px;
+}
+ 
+#cuerpo
+{
+	padding-left:10px;
+}
+#tabs
+{
+	font-size:14px;	
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right:10px;
+	width:100%;
+}
+#usuario {
+    text-align:right;
+    width:300px;
+    float:right;
+    height:100px;
+    padding-top:80px;
+}
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+
+
+/* Login */
+
+
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 10% auto 0;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* cabecera */
+.navbar {
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+} 
+.navbar img {
+    width: 173px;
+}
+.navbar a {
+    text-decoration: none;
+}
+.navbar-brand {
+    padding: 0;
+    line-height: 50px;
+    margin-right:10px;
+}
+    .navbar-brand > img {
+        display: inline;
+        margin: 0 10px
+    }
+.remember {
+    margin-bottom: 16px;
+    float:left
+}
+/*h3 {
+    border-bottom: 1px solid #ccc;
+}
+*/

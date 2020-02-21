@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<CMDBApplication.ViewModels.UsuarioView>" %>
+<a data-trigger="hover" data-html="true" role="tooltip" data-toggle="popover" data-placement="top" title="Información de usuario" data-content="<div><div>Celular: <%=Model.Usuario.Celular %></div><div>Anexo: <%=Model.Usuario.Anexo %></div><div>Skype: <%=Model.Usuario.Skype %></div></div>" href="<%=Url.Content("~/Usuario/Obtener/"+Model.Usuario.Nombre) %>"><%=Model.Usuario.Nombre %></a>

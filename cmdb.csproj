@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D701FCD9-60E4-4933-A30E-FEA8D709EB4C}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMDBApplication</RootNamespace>
+    <AssemblyName>CMDBApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.021\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilitarios">
+      <HintPath>..\..\..\..\Utilitarios\Utilitarios\bin\Debug\Utilitarios.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AmbienteController.cs" />
+    <Compile Include="Controllers\AplicacionController.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DesarrolladorController.cs" />
+    <Compile Include="Controllers\FormatoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstanciaController.cs" />
+    <Compile Include="Controllers\ObjetoController.cs" />
+    <Compile Include="Controllers\ObservacionController.cs" />
+    <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\ResponsableController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\SeguridadController.cs" />
+    <Compile Include="Controllers\ServidorController.cs" />
+    <Compile Include="Controllers\SistemaController.cs" />
+    <Compile Include="Controllers\SolicitudController.cs" />
+    <Compile Include="Controllers\TipoAccionBDController.cs" />
+    <Compile Include="Controllers\TipoObjetoBDController.cs" />
+    <Compile Include="Controllers\TipoProyectoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VentanaController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomMembershipProvider.cs" />
+    <Compile Include="Infrastructure\CustomRoleProvider.cs" />
+    <Compile Include="Models\Ambiente.cs" />
+    <Compile Include="Models\Aplicacion.cs" />
+    <Compile Include="Models\Archivo.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\ConflictoBD.cs" />
+    <Compile Include="Models\ConflictoCRMWPApp.cs" />
+    <Compile Include="Models\Correo.cs" />
+    <Compile Include="Models\Desarrollador.cs" />
+    <Compile Include="Models\Esquema.cs" />
+    <Compile Include="Models\Estado.cs" />
+    <Compile Include="Models\Formato.cs" />
+    <Compile Include="Models\Instancia.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\ObjetoBD.cs" />
+    <Compile Include="Models\Observacion.cs" />
+    <Compile Include="Models\Proyecto.cs" />
+    <Compile Include="Models\ProyectoAmbiente.cs" />
+    <Compile Include="Models\ProyectoCertificado.cs" />
+    <Compile Include="Models\Responsable.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Rollback.cs" />
+    <Compile Include="Models\Servidor.cs" />
+    <Compile Include="Models\Sistema.cs" />
+    <Compile Include="Models\Solicitud.cs" />
+    <Compile Include="Models\SolicitudAndroidApp.cs" />
+    <Compile Include="Models\SolicitudAndroidCab.cs" />
+    <Compile Include="Models\SolicitudApp11gApp.cs" />
+    <Compile Include="Models\SolicitudApp11gCab.cs" />
+    <Compile Include="Models\SolicitudArchivos.cs" />
+    <Compile Include="Models\SolicitudBDCampo.cs" />
+    <Compile Include="Models\SolicitudBDConfiguracion.cs" />
+    <Compile Include="Models\SolicitudBDJob.cs" />
+    <Compile Include="Models\SolicitudBDPermisoDBU.cs" />
+    <Compile Include="Models\SolicitudConfigApp11gCab.cs" />
+    <Compile Include="Models\SolicitudConfigApp11gCarpetasArchivos.cs" />
+    <Compile Include="Models\SolicitudConfigApp11gCertificado.cs" />
+    <Compile Include="Models\SolicitudConfigApp11gDatasource.cs" />
+    <Compile Include="Models\SolicitudConfigApp11gServerCluster.cs" />
+    <Compile Include="Models\SolicitudConfigApp11gSesionCorreo.cs" />
+    <Compile Include="Models\SolicitudCRMCab.cs" />
+    <Compile Include="Models\SolicitudCrmConfigCab.cs" />
+    <Compile Include="Models\SolicitudCrmConfigCarpetasArchivos.cs" />
+    <Compile Include="Models\SolicitudCrmConfigCertificado.cs" />
+    <Compile Include="Models\SolicitudCrmConfigDatasource.cs" />
+    <Compile Include="Models\SolicitudCrmConfigServerCluster.cs" />
+    <Compile Include="Models\SolicitudCRMOpcionesCab.cs" />
+    <Compile Include="Models\SolicitudCRMOpcionesOpciones.cs" />
+    <Compile Include="Models\SolicitudCRMOpcionesPermisos.cs" />
+    <Compile Include="Models\SolicitudCRMOpcionesRoles.cs" />
+    <Compile Include="Models\SolicitudCRMPortalCab.cs" />
+    <Compile Include="Models\SolicitudCRMPortalPortal.cs" />
+    <Compile Include="Models\SolicitudCRMWPApp.cs" />
+    <Compile Include="Models\SolicitudDiscovererCab.cs" />
+    <Compile Include="Models\SolicitudDiscovererObjetos.cs" />
+    <Compile Include="Models\SolicitudIXMediationCab.cs" />
+    <Compile Include="Models\SolicitudIXMediationObjetos.cs" />
+    <Compile Include="Models\SolicitudODIArchivos.cs" />
+    <Compile Include="Models\SolicitudODICab.cs" />
+    <Compile Include="Models\SolicitudOSB10gAplicaciones.cs" />
+    <Compile Include="Models\SolicitudOSB10gCab.cs" />
+    <Compile Include="Models\SolicitudOSB10gConfigCab.cs" />
+    <Compile Include="Models\SolicitudOSB10gConfigCarpetaArchivo.cs" />
+    <Compile Include="Models\SolicitudOSB10gConfigCertificados.cs" />
+    <Compile Include="Models\SolicitudOSB10gConfigDataSource.cs" />
+    <Compile Include="Models\SolicitudOSB10gConfigServer.cs" />
+    <Compile Include="Models\SolicitudOSB10gServicios.cs" />
+    <Compile Include="Models\SolicitudOSB11gAplicaciones.cs" />
+    <Compile Include="Models\SolicitudOSB11gCab.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigAdaptadores.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigCab.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigCarpetaArchivo.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigCertificados.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigColas.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigDataSource.cs" />
+    <Compile Include="Models\SolicitudOSB11gConfigServerCluster.cs" />
+    <Compile Include="Models\SolicitudOSB11gServicios.cs" />
+    <Compile Include="Models\SolicitudPBArchivos.cs" />
+    <Compile Include="Models\SolicitudPBCab.cs" />
+    <Compile Include="Models\SolicitudPBLibrerias.cs" />
+    <Compile Include="Models\SolicitudPendiente.cs" />
+    <Compile Include="Models\SolicitudReportesReportes.cs" />
+    <Compile Include="Models\SolicitudRetailCab.cs" />
+    <Compile Include="Models\SolicitudRetailConfigCab.cs" />
+    <Compile Include="Models\SolicitudRetailConfigDetalle.cs" />
+    <Compile Include="Models\SolicitudRetailDetalle.cs" />
+    <Compile Include="Models\SolicitudSOAConfigAdaptadores.cs" />
+    <Compile Include="Models\SolicitudSOABPEL.cs" />
+    <Compile Include="Models\SolicitudSOACab.cs" />
+    <Compile Include="Models\SolicitudSOAConfigArchivos.cs" />
+    <Compile Include="Models\SolicitudSOAConfigCab.cs" />
+    <Compile Include="Models\SolicitudSOAConfigCertificados.cs" />
+    <Compile Include="Models\SolicitudSOAConfigDataSource.cs" />
+    <Compile Include="Models\SolicitudSOAConfigPool.cs" />
+    <Compile Include="Models\SolicitudSOAEAR.cs" />
+    <Compile Include="Models\SolicitudSOAESB.cs" />
+    <Compile Include="Models\SolicitudSOAConfigInstanciasJ2EE.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMCab.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMAgente.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMComponente.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMGrupo.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMPipeline.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMServicios.cs" />
+    <Compile Include="Models\SolicitudSOAOWSMUsuario.cs" />
+    <Compile Include="Models\SolicitudTomcatApp.cs" />
+    <Compile Include="Models\SolicitudTomcatCab.cs" />
+    <Compile Include="Models\SoliciutdReportesCab.cs" />
+    <Compile Include="Models\TipoAccionBD.cs" />
+    <Compile Include="Models\TipoEvento.cs" />
+    <Compile Include="Models\TipoObjetoBD.cs" />
+    <Compile Include="Models\TipoProyecto.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Ventana.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AmbienteRepository.cs" />
+    <Compile Include="Repository\AplicacionRepository.cs" />
+    <Compile Include="Repository\AreaRepository.cs" />
+    <Compile Include="Repository\DesarrolladorRepository.cs" />
+    <Compile Include="Repository\EsquemaRepository.cs" />
+    <Compile Include="Repository\EstadoRepository.cs" />
+    <Compile Include="Repository\FormatoRepository.cs" />
+    <Compile Include="Repository\InstanciaRepository.cs" />
+    <Compile Include="Repository\ObjetoBDRepository.cs" />
+    <Compile Include="Repository\ObservacionRepository.cs" />
+    <Compile Include="Repository\ProyectoRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\ResponsableRepository.cs" />
+    <Compile Include="Repository\RolRepository.cs" />
+    <Compile Include="Repository\SeguridadRepository.cs" />
+    <Compile Include="Repository\ServidorRepository.cs" />
+    <Compile Include="Repository\SistemaRepository.cs" />
+    <Compile Include="Repository\SolicitudAndroidRepository.cs" />
+    <Compile Include="Repository\SolicitudApp11gRepository.cs" />
+    <Compile Include="Repository\SolicitudBDCampoRepository.cs" />
+    <Compile Include="Repository\SolicitudBDConfiguracionRepository.cs" />
+    <Compile Include="Repository\SolicitudBDJobRepository.cs" />
+    <Compile Include="Repository\SolicitudBDPermisoDBURepository.cs" />
+    <Compile Include="Repository\SolicitudConfigApp11gRepository.cs" />
+    <Compile Include="Repository\SolicitudCRMConfigRepository.cs" />
+    <Compile Include="Repository\SolicitudCRMOpcionesRepository.cs" />
+    <Compile Include="Repository\SolicitudCRMPortalRepository.cs" />
+    <Compile Include="Repository\SolicitudCRMWPAppRepository.cs" />
+    <Compile Include="Repository\SolicitudDiscovererRepository.cs" />
+    <Compile Include="Repository\SolicitudIXMediationRepository.cs" />
+    <Compile Include="Repository\SolicitudODIRepository.cs" />
+    <Compile Include="Repository\SolicitudOSB10gConfigRepository.cs" />
+    <Compile Include="Repository\SolicitudOSB10gRepository.cs" />
+    <Compile Include="Repository\SolicitudOSB11gConfigRepository.cs" />
+    <Compile Include="Repository\SolicitudOSB11gRepository.cs" />
+    <Compile Include="Repository\SolicitudPBRepository.cs" />
+    <Compile Include="Repository\SolicitudReportesRepository.cs" />
+    <Compile Include="Repository\SolicitudRepository.cs" />
+    <Compile Include="Repository\SolicitudRetailConfigRepository.cs" />
+    <Compile Include="Repository\SolicitudRetailRepository.cs" />
+    <Compile Include="Repository\SolicitudSOAConfigRepository.cs" />
+    <Compile Include="Repository\SolicitudSOARepository.cs" />
+    <Compile Include="Repository\SolicitudTomcatRepository.cs" />
+    <Compile Include="Repository\TipoAccionBDRepository.cs" />
+    <Compile Include="Repository\TipoObjetoBDRepository.cs" />
+    <Compile Include="Repository\TipoProyectoRepository.cs" />
+    <Compile Include="Repository\UsuarioRepository.cs" />
+    <Compile Include="Repository\VentanaRepository.cs" />
+    <Compile Include="Util\Util.cs" />
+    <Compile Include="ViewModels\AmbienteView.cs" />
+    <Compile Include="ViewModels\AplicacionView.cs" />
+    <Compile Include="ViewModels\ArchivoView.cs" />
+    <Compile Include="ViewModels\AreaView.cs" />
+    <Compile Include="ViewModels\DesarrolladorView.cs" />
+    <Compile Include="ViewModels\EstadoView.cs" />
+    <Compile Include="ViewModels\FormatoView.cs" />
+    <Compile Include="ViewModels\HomeView.cs" />
+    <Compile Include="ViewModels\InstanciaView.cs" />
+    <Compile Include="ViewModels\ObjetoView.cs" />
+    <Compile Include="ViewModels\ObservacionView.cs" />
+    <Compile Include="ViewModels\ProyectoView.cs" />
+    <Compile Include="ViewModels\ResponsableView.cs" />
+    <Compile Include="ViewModels\RolView.cs" />
+    <Compile Include="ViewModels\ServidorView.cs" />
+    <Compile Include="ViewModels\SistemaView.cs" />
+    <Compile Include="ViewModels\SolicitudView.cs" />
+    <Compile Include="ViewModels\TipoAccionBDView.cs" />
+    <Compile Include="ViewModels\TipoObjetoBDView.cs" />
+    <Compile Include="ViewModels\TipoProyectoView.cs" />
+    <Compile Include="ViewModels\UsuarioView.cs" />
+    <Compile Include="ViewModels\VentanaView.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\dbo.Ambiente.sql" />
+    <Content Include="App_Data\dbo.AmbienteCorreo.sql" />
+    <Content Include="App_Data\dbo.Area.sql" />
+    <Content Include="App_Data\dbo.Formato.sql" />
+    <Content Include="App_Data\dbo.Proyecto.sql" />
+    <Content Include="App_Data\dbo.ProyectoAmbiente.sql" />
+    <Content Include="App_Data\dbo.ProyectoCertificado.sql" />
+    <Content Include="App_Data\dbo.ProyectoCorreo.sql" />
+    <Content Include="App_Data\dbo.Responsable.sql" />
+    <Content Include="App_Data\dbo.ServidorUsuario.sql" />
+    <Content Include="App_Data\dbo.Solicitud.sql" />
+    <Content Include="App_Data\dbo.SolicitudAndroidCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudAprobacion.sql" />
+    <Content Include="App_Data\dbo.SolicitudBD.sql" />
+    <Content Include="App_Data\dbo.SolicitudBDCampo.sql" />
+    <Content Include="App_Data\dbo.SolicitudBDConfiguracion.sql" />
+    <Content Include="App_Data\dbo.SolicitudConfigApp11gCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudConfigApp11gCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.SolicitudConfigApp11gCertificado.sql" />
+    <Content Include="App_Data\dbo.SolicitudConfigApp11gDataSource.sql" />
+    <Content Include="App_Data\dbo.SolicitudConfigApp11gServerCluster.sql" />
+    <Content Include="App_Data\dbo.SolicitudConfigApp11gSesionCorreo.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMConfigCertificado.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMConfigServerCluster.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMOpcionesCAB.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMOpcionesOpciones.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMOpcionesPermisos.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMOpcionesRoles.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMPortalCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMPortalPortal.sql" />
+    <Content Include="App_Data\dbo.SolicitudCRMWPApp.sql" />
+    <Content Include="App_Data\dbo.SolicitudDiscovererCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudDiscovererObjetos.sql" />
+    <Content Include="App_Data\dbo.SolicitudIXMediationCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudIXMediationObjetos.sql" />
+    <Content Include="App_Data\dbo.SolicitudODIArchivos.sql" />
+    <Content Include="App_Data\dbo.SolicitudODICab.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gConfigCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gConfigServer.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB10gServicios.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigAdaptadores.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigColas.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gConfigServerCluster.sql" />
+    <Content Include="App_Data\dbo.SolicitudOSB11gServicios.sql" />
+    <Content Include="App_Data\dbo.SolicitudPBArchivos.sql" />
+    <Content Include="App_Data\dbo.SolicitudPBCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudPBLibrerias.sql" />
+    <Content Include="App_Data\dbo.SolicitudReportesCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudReportesDetalle.sql" />
+    <Content Include="App_Data\dbo.SolicitudRetailCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudRetailConfigCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudRetailConfigDetalle.sql" />
+    <Content Include="App_Data\dbo.SolicitudRetailDetalle.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOABPEL.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOACab.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigAdaptadores.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigArchivos.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigCab.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigInstanciasJ2EE.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAConfigPool.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAEAR.sql" />
+    <Content Include="App_Data\dbo.SolicitudSOAESB.sql" />
+    <Content Include="App_Data\dbo.SolicitudTomcatApp.sql" />
+    <Content Include="App_Data\dbo.SolicitudTomcatCab.sql" />
+    <Content Include="App_Data\dbo.TipoObjetoBD.sql" />
+    <Content Include="App_Data\dbo.TipoProyecto.sql" />
+    <Content Include="App_Data\dbo.ufn_QuitarPunto.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarAmbienteCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo1.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo10.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo2.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo3.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo4.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo5.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo6.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo7.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo8.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivo9.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArchivoFormato.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarArea.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarCertificado.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarDatosUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarFormato.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarProyectoCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarResponsable.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarRMSolicitadoxSol.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarServidor.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarServidorUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarSolicitudAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarSolObservadoxRM.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarSolSolicitadoxSol.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarTipoObjetoBD.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarTipoProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarVentana.sql" />
+    <Content Include="App_Data\dbo.usp_CrearAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_CrearArea.sql" />
+    <Content Include="App_Data\dbo.usp_CrearFormato.sql" />
+    <Content Include="App_Data\dbo.usp_CrearProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_CrearResponsable.sql" />
+    <Content Include="App_Data\dbo.usp_CrearServidor.sql" />
+    <Content Include="App_Data\dbo.usp_CrearUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_CrearVentana.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarAmbienteCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarProyectoCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarServidorUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitud10gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudAndroidApp.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudAndroidCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudBDCampo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudBDConfiguracion.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudConfigApp11gCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudConfigApp11gCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudConfigApp11gCertificado.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudConfigApp11gDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudConfigApp11gServerCluster.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudConfigApp11gSesionCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmConfigCertificado.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmConfigServerCluster.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmOpcionesCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmOpcionesOpciones.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmOpcionesPermisos.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmOpcionesRoles.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCrmPortalCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCRMPortalPortal.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudCRMWPApp.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudDiscovererObjetos.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudIXMediationCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudIXMediationObjetos.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudODIArchivos.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudODICab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10ConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10ConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10ConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10ConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10ConfigServer.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10gCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB10gServicios.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigAdaptadores.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigColas.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gConfigServerCluster.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudOSB11gServicios.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudPBArchivos.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudPBCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudPBLibrerias.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudReportesCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudReportesDetalle.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudRetailCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudRetailConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudRetailConfigDetalle.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudRetailDetalle.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOABPEL.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOACab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigAdaptadores.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigArchivos.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigInstanciasJ2EE.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAConfigPool.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAEAR.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudSOAESB.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudTomcatApp.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudTomcatCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarAmbienteCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarObjetoBD.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarProyectoAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarProyectoCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarServidorUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitud.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudAndroidApp.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudAndroidCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudApp11gApp.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudApp11gCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudBDCampo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudBDConfiguracion.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudBDPermisoDBU.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudConfigApp11gCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudConfigApp11gCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudConfigApp11gCertificado.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudConfigApp11gDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudConfigApp11gServerCluster.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudConfigApp11gSesionCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCrmConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCrmConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCrmConfigCertificado.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCrmConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCrmConfigServerCluster.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudDiscovererCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMOpcionesCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMOpcionesOpciones.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMOpcionesPermisos.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMOpcionesRoles.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMPortalCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMPortalPortal.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudCRMWPApp.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudDiscovererObjetos.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudIXMediationCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudIXMediationObjetos.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudODIArchivos.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudODICab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gConfigServer.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB10gServicios.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gAplicaciones.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigAdaptadores.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigCarpetaArchivo.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigColas.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gConfigServerCluster.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudOSB11gServicios.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudPBArchivos.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudPBCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudPBLibrerias.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudReportesCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudReportesDetalle.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudRetailCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudRetailConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudRetailConfigDetalle.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudRetailDetalle.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOABPEL.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOACab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigAdaptadores.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigArchivos.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigCertificados.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigDataSource.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigInstanciasJ2EE.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAConfigPool.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAEAR.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudSOAESB.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudTomcatApp.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudTomcatCab.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarTipoObjetoBD.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarTipoProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ListarAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_ListarArea.sql" />
+    <Content Include="App_Data\dbo.usp_ListarCalendarioPases.sql" />
+    <Content Include="App_Data\dbo.usp_ListarCampos.sql" />
+    <Content Include="App_Data\dbo.usp_ListarCertificado.sql" />
+    <Content Include="App_Data\dbo.usp_ListarConfiguracion.sql" />
+    <Content Include="App_Data\dbo.usp_ListarConflicto.sql" />
+    <Content Include="App_Data\dbo.usp_ListarFormato.sql" />
+    <Content Include="App_Data\dbo.usp_ListarJob.sql" />
+    <Content Include="App_Data\dbo.usp_ListarLog.sql" />
+    <Content Include="App_Data\dbo.usp_ListarObjetoBD.sql" />
+    <Content Include="App_Data\dbo.usp_ListarObjetoBDPorNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ListarObjetoBDxSolicitud.sql" />
+    <Content Include="App_Data\dbo.usp_ListarPermisosDBU.sql" />
+    <Content Include="App_Data\dbo.usp_ListarProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ListarProyectoCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_ListarResponsable.sql" />
+    <Content Include="App_Data\dbo.usp_ListarReversion.sql" />
+    <Content Include="App_Data\dbo.usp_ListarServidor.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitud.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesAprobadasRM.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesIngresadas.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesPendientesCM.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesPendientesEjecutor.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesPorProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesPorSolicitante.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolPendientes.sql" />
+    <Content Include="App_Data\dbo.usp_ListarTipoProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ListarUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_ListarVentana.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerAmbientePorNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerArchivoAprobacion.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerArchivoAprobacionPorNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerArchivoFormato.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerArchivoLog.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerArea.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerAreaPorNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ListarSolicitudesEnviadas.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerEsquemaPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerEstadoPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerFormato.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerFormatoPorNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerFormatoPorPropiedadNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerProyectoAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerProyectoPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerResponsable.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerResponsablePorNombre.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerServidor.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerServidorPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerSolicitud.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerSolicitudEstado.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerTipoObjetoBD.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerTipoObjetoBDPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerTipoProyecto.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerTipoProyectoPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerUsuario.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerUsuarioPorid.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerVentanaPorId.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerVentanaPorRango.sql" />
+    <Content Include="App_Data\dbo.usp_RevertirSolicitud.sql" />
+    <Content Include="App_Data\dbo.Usuario.sql" />
+    <Content Include="App_Data\dbo.Ventana.sql" />
+    <Content Include="App_Data\dbo.usp_ActualizarSistema.sql" />
+    <Content Include="App_Data\dbo.usp_ObtenerSistema.sql" />
+    <Content Include="css\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap\css\bootstrap.css" />
+    <Content Include="css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\bootstrap\main.css" />
+    <Content Include="css\codemirror.css" />
+    <Content Include="css\colorpicker.css" />
+    <Content Include="css\fullcalendar.css" />
+    <Content Include="css\jquery.qtip.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\smoothness\images\animated-overlay.gif" />
+    <Content Include="css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\smoothness\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="img\aprobar.png" />
+    <Content Include="img\clock.png" />
+    <Content Include="img\hpe.png" />
+    <Content Include="img\ok.png" />
+    <Content Include="img\bug.png" />
+    <Content Include="img\arbol_navidad_corto.jpg" />
+    <Content Include="img\blank.gif" />
+    <Content Include="img\colorpicker_background.png" />
+    <Content Include="img\colorpicker_hex.png" />
+    <Content Include="img\colorpicker_hsb_b.png" />
+    <Content Include="img\colorpicker_hsb_h.png" />
+    <Content Include="img\colorpicker_hsb_s.png" />
+    <Content Include="img\colorpicker_indic.gif" />
+    <Content Include="img\colorpicker_overlay.png" />
+    <Content Include="img\colorpicker_rgb_b.png" />
+    <Content Include="img\colorpicker_rgb_g.png" />
+    <Content Include="img\colorpicker_rgb_r.png" />
+    <Content Include="img\colorpicker_select.gif" />
+    <Content Include="img\colorpicker_submit.png" />
+    <Content Include="img\custom_background.png" />
+    <Content Include="img\custom_hex.png" />
+    <Content Include="img\custom_hsb_b.png" />
+    <Content Include="img\custom_hsb_h.png" />
+    <Content Include="img\custom_hsb_s.png" />
+    <Content Include="img\custom_indic.gif" />
+    <Content Include="img\custom_rgb_b.png" />
+    <Content Include="img\custom_rgb_g.png" />
+    <Content Include="img\custom_rgb_r.png" />
+    <Content Include="img\custom_submit.png" />
+    <Content Include="img\fondo.jpg" />
+    <Content Include="img\progress.gif" />
+    <Content Include="img\revert.png" />
+    <Content Include="img\select.png" />
+    <Content Include="img\select2.png" />
+    <Content Include="img\slider.png" />
+    <Content Include="img\warning.png" />
+    <Content Include="js\bootstrap\bootstrap.js" />
+    <Content Include="js\bootstrap\bootstrap.min.js" />
+    <Content Include="js\bootstrap\npm.js" />
+    <Content Include="js\colorpicker.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="js\solicitud.js" />
+    <Content Include="js\vendor\diff_match_patch.js" />
+    <Content Include="js\vendor\excanvas.js" />
+    <Content Include="js\vendor\flotr2.js" />
+    <Content Include="js\vendor\fullcalendar.js" />
+    <Content Include="js\vendor\jquery-1.11.3.min.js" />
+    <Content Include="js\vendor\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="js\vendor\jquery.pretty-text-diff.js" />
+    <Content Include="js\vendor\jquery.qtip.js" />
+    <Content Include="js\vendor\lang-all.js" />
+    <Content Include="js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="js\vendor\moment.min.js" />
+    <Content Include="Views\Ambiente\Crear.aspx" />
+    <Content Include="Views\Ambiente\Index.aspx" />
+    <Content Include="Views\Ambiente\Obtener.aspx" />
+    <Content Include="Views\Aplicacion\Index.aspx" />
+    <Content Include="Views\Area\Crear.aspx" />
+    <Content Include="Views\Area\Index.aspx" />
+    <Content Include="Views\Area\Obtener.aspx" />
+    <Content Include="Views\Desarrollador\Crear.aspx" />
+    <Content Include="Views\Desarrollador\Index.aspx" />
+    <Content Include="Views\Desarrollador\Obtener.aspx" />
+    <Content Include="Views\Formato\Crear.aspx" />
+    <Content Include="Views\Formato\Listar.aspx" />
+    <Content Include="Views\Formato\Obtener.aspx" />
+    <Content Include="Views\Objeto\Buscar.aspx" />
+    <Content Include="Views\Proyecto\CalendarioPases.aspx" />
+    <Content Include="Views\Home\ConfigurarCorreo.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\IndexCM.aspx" />
+    <Content Include="Views\Home\IndexEjecutor.aspx" />
+    <Content Include="Views\Home\IndexOperador.aspx" />
+    <Content Include="Views\Home\IndexRM.aspx" />
+    <Content Include="Views\Proyecto\ReporteValidacion.aspx" />
+    <Content Include="Views\Shared\InformacionUsuario.ascx" />
+    <Content Include="Views\Sistema\AsignarFormato.aspx" />
+    <Content Include="Views\Sistema\CrearCarpeta.aspx" />
+    <Content Include="Views\Sistema\MatarProcesoExcel.aspx" />
+    <Content Include="Views\Sistema\ObtenerSistema.aspx" />
+    <Content Include="Views\Instancia\Crear.aspx" />
+    <Content Include="Views\Instancia\Index.aspx" />
+    <Content Include="Views\Instancia\Obtener.aspx" />
+    <Content Include="Views\Observacion\Crear.aspx" />
+    <Content Include="Views\Observacion\Index.aspx" />
+    <Content Include="Views\Observacion\Obtener.aspx" />
+    <Content Include="Views\Proyecto\Certificar.aspx" />
+    <Content Include="Views\Proyecto\Crear.aspx" />
+    <Content Include="Views\Proyecto\Index.aspx" />
+    <Content Include="Views\Proyecto\ObjetosPendientes.aspx" />
+    <Content Include="Views\Proyecto\ListarReversion.aspx" />
+    <Content Include="Views\Proyecto\Obtener.aspx" />
+    <Content Include="Views\Responsable\Crear.aspx" />
+    <Content Include="Views\Responsable\Index.aspx" />
+    <Content Include="Views\Responsable\Obtener.aspx" />
+    <Content Include="Views\Rol\Crear.aspx" />
+    <Content Include="Views\Rol\Index.aspx" />
+    <Content Include="Views\Rol\Obtener.aspx" />
+    <Content Include="Views\Seguridad\Ingresar.aspx" />
+    <Content Include="Views\Servidor\Crear.aspx" />
+    <Content Include="Views\Servidor\Index.aspx" />
+    <Content Include="Views\Servidor\Obtener.aspx" />
+    <Content Include="Views\Shared\ImagenValidacion.ascx" />
+    <Content Include="Views\Shared\ListaConflicto.ascx" />
+    <Content Include="Views\Shared\Mensaje.aspx" />
+    <Content Include="Views\Shared\MenuAplicacion.ascx" />
+    <Content Include="Views\Shared\SolicitudesPendientes.ascx" />
+    <Content Include="Views\Solicitud\Buscar.aspx" />
+    <Content Include="Views\Solicitud\Crear.aspx" />
+    <Content Include="Views\Solicitud\ListarRollback.aspx" />
+    <Content Include="Views\Solicitud\OtroSolicitadoxSol.aspx" />
+    <Content Include="Views\Solicitud\Revertir.aspx" />
+    <Content Include="Views\Solicitud\RMSolicitadoxSol.aspx" />
+    <Content Include="Views\Solicitud\SolAnuladoxSol.aspx" />
+    <Content Include="Views\Solicitud\SolObservadoxRM.aspx" />
+    <Content Include="Views\Solicitud\SolSolicitadoxSol.aspx" />
+    <Content Include="Views\TipoAccionBD\Crear.aspx" />
+    <Content Include="Views\TipoAccionBD\Index.aspx" />
+    <Content Include="Views\TipoAccionBD\Obtener.aspx" />
+    <Content Include="Views\TipoObjetoBD\Crear.aspx" />
+    <Content Include="Views\TipoObjetoBD\Index.aspx" />
+    <Content Include="Views\TipoObjetoBD\Obtener.aspx" />
+    <Content Include="Views\TipoProyecto\Crear.aspx" />
+    <Content Include="Views\TipoProyecto\Index.aspx" />
+    <Content Include="Views\TipoProyecto\Obtener.aspx" />
+    <Content Include="Views\Usuario\CambiarClave.aspx" />
+    <Content Include="Views\Usuario\Crear.aspx" />
+    <Content Include="Views\Usuario\Index.aspx" />
+    <Content Include="Views\Usuario\MisDatos.aspx" />
+    <Content Include="Views\Usuario\Obtener.aspx" />
+    <Content Include="Views\Usuario\RecuperarClave.aspx" />
+    <Content Include="Views\Usuario\ResetearClave.aspx" />
+    <Content Include="Views\Ventana\Crear.aspx" />
+    <Content Include="Views\Ventana\Index.aspx" />
+    <Content Include="Views\Ventana\Obtener.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ViewMasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\dbo.SolicitudLog.sql" />
+    <Content Include="App_Data\dbo.usp_InsertarSolicitudLog.sql" />
+    <Content Include="App_Data\dbo.Sistema.sql" />
+    <Content Include="App_Data\dbo.usp_ListarAmbienteCorreo.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarProyectoAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_ListarProyectoAmbiente.sql" />
+    <Content Include="App_Data\dbo.usp_ListarTipoObjetoBD.sql" />
+    <Content Include="css\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap\css\bootstrap.css.map" />
+    <Content Include="css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="css\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App_Data\dbo.SolicitudCRMConfigCab.sql" />
+    <Content Include="App_Data\dbo.usp_EliminarSolicitudDiscovererCab.sql" />
+    <None Include="Properties\PublishProfiles\Default.pubxml" />
+    <Content Include="Views\Home\FiltroAmbiente.cshtml" />
+    <Content Include="Views\Shared\InformacionProyecto.cshtml" />
+    <Content Include="Views\Shared\ListaObjetos.cshtml" />
+    <Content Include="Views\Shared\ListaCRMApp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58407</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52994/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

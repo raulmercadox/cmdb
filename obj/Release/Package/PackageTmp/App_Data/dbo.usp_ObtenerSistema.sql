@@ -1,0 +1,4 @@
+﻿alter procedure dbo.usp_ObtenerSistema
+as
+select id,primerasolicitud,OracleDBUExtractConexion,EstadoId,carpetatrabajo,CorreoCMS,ResponderA,CopiarExcelA,FolderPre,FolderDML,MensajeCrearSolicitud
+from dbo.Sistema

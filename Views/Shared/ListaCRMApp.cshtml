@@ -1,0 +1,27 @@
+﻿@model CMDBApplication.ViewModels.ObjetoView
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+            <tr><th>Solicitud</th><th>Ambiente</th><th>Proyecto</th><th>Estado</th><th>Fecha Solicitud</th><th>Fecha Ejecución</th><th>Nombre</th></tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var objeto in Model.CRMApps)
+                {
+                    <tr>
+                        <td><a href="@Url.Content("~/Solicitud/Obtener/S"+objeto.Solicitud.Id.ToString().PadLeft(6,'0'))">@String.Concat("S",objeto.Solicitud.Id.ToString().PadLeft(6,'0'))</a></td>
+                        <td><a href="@Url.Content("~/Ambiente/Obtener/"+objeto.Solicitud.Ambiente.Id.ToString())">@objeto.Solicitud.Ambiente.Nombre</a></td>
+                        <td><a href="@Url.Content("~/Proyecto/Obtener/"+objeto.Solicitud.Proyecto.Codigo)">@objeto.Solicitud.Proyecto.Codigo</a>@String.Concat(" - ",objeto.Solicitud.Proyecto.Nombre)</td>
+                        <td>@objeto.Solicitud.Estado</td>
+                        <td>@objeto.Solicitud.FechaCreacion.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                        <td>@(objeto.Solicitud.FechaEjecucion.HasValue?objeto.Solicitud.FechaEjecucion.Value.ToString("dd/MM/yyyy HH:mm:ss"):String.Empty)</td>
+                        <td>@objeto.Aplicacion</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@if(Model.CRMApps.Count>0){
+    <div class="alert alert-info">@Model.CRMApps.Count Registros</div>
+}
